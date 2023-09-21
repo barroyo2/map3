@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+
+   var universalIcon = L.icon({
+    iconUrl: 'universal.png', // url that links to the icon image file
+    iconSize:     [38, 38], // size of the icon image in pixels
+    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+}); 
+var roadtripIcon = L.icon({
+    iconUrl: 'roadtrip.png', // url that links to the icon image file
+    iconSize:     [38, 38], // size of the icon image in pixels
+    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});  
+var rollercoasterIcon = L.icon({
+    iconUrl: 'rollercoaster.png', // url that links to the icon image file
+    iconSize:     [38, 38], // size of the icon image in pixels
+    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});  
+var marker1 = L.marker([28.4793754,-81.4685422],{icon: universalIcon}).addTo(map);
+var marker2 = L.marker([39.3451798,-85.3897478],{icon: roadtripIcon}).addTo(map);
+var marker3 = L.marker([42.3706208,-87.9360261],{icon: rollercoasterIcon}).addTo(map);
+var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Universal_Studios_Florida_18.jpg/320px-Universal_Studios_Florida_18.jpg"  alt="Universal" width="250">';
+var pic2 = '<img src="https://static.wikia.nocookie.net/visitkingsisland/images/3/36/Banshee_Entrance.jpg/revision/latest?cb=20170626204015 alt="Banshee"  width="250">';
+var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Six_Flags_Great_America_-_Viper_roller_coaster.jpg/320px-Six_Flags_Great_America_-_Viper_roller_coaster.jpg"alt="The Viper" width="250">';
+marker1.bindPopup('<p style="color:purple; font-weight:bold"> My favorite theme park in Florida' + '</p>' +pic1);
+marker2.bindPopup('<p style="color:royalblue; font-weight:bold"> My first friend trip at King Island' + '</p>' +pic2);
+marker3.bindPopup('<p style="color:firebrick; font-weight:bold">My first rollercoaster at SixFlags' + '</p>' +pic3);
+
+        </script>
+   </body>
+</html>
